@@ -1,5 +1,6 @@
 import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from dataclasses import dataclass
 import numpy as np
 import pandas as pd
@@ -102,8 +103,7 @@ class DataTransformation:
 
             return (
                 train_arr,
-                test_arr,
-                self.data_transformation_config.preprocessor_obj_file_path,
+                test_arr
             )
 
         except Exception as e:
