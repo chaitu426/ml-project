@@ -1,5 +1,7 @@
 from fastapi import FastAPI, Form
 from pydantic import BaseModel
+import uvicorn
+import os
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 app = FastAPI(title="Student Score Prediction API")
@@ -39,3 +41,9 @@ def predict(data: InputData):
     prediction = predict_pipeline.predict(pred_df)
 
     return {"predicted_maths_score": float(prediction[0])}
+
+
+if __name__ == "__main__":
+
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("application:app", host="0.0.0.0", port=port)
