@@ -1,5 +1,4 @@
 mlproject.egg-info/
 venv/
 logs/
-artifacts/
 .vscode
